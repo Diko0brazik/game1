@@ -16,14 +16,24 @@ def print_char(x, y, char):
         print("\033["+str(y)+";"+str(x)+"H"+char)
 
 def draw_pole(pole):
-    pass
-    
+    for x, y in pole.pole:
+        char = pole.pole[(x,y)]
+        print_char(x, y, char)
+
     
 
 
 class pole_c():
     def __init__(o):
         o.objects = list()
+        max_x = 10
+        max_y = 10
+        keys = []
+        for x in range(1, max_x):
+            for y in range(1, max_y):
+                keys.append((x,y,))
+        o.pole = dict((k, '0') for k in keys )
+
 
     def add_object( o, object  ):
         o.objects.append(object) 
