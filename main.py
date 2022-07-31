@@ -1,4 +1,5 @@
 # game about поле и развитие
+from operator import truediv
 from random import random
 
 
@@ -33,7 +34,7 @@ class pole_c():
 
 
 class zaic():
-    def __init__(o,x=1, y=1, id = None):
+    def __init__(o,x=1, y=1, id = None, move=True):  #add "move" : if true animal, if false plant.
         if id is None : id = gen_unic_id()
         o.id = id
         o.x = x
