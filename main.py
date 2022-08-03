@@ -26,13 +26,13 @@ def draw_pole(pole):
 class pole_c():
     def __init__(o):
         o.objects = list()
-        max_x = 10
-        max_y = 10
+        max_x = 50
+        max_y = 20
         keys = []
         for x in range(1, max_x):
             for y in range(1, max_y):
                 keys.append((x,y,))
-        o.pole = dict((k, '0') for k in keys )
+        o.pole = dict((k, '.') for k in keys )
 
 
     def add_object( o, object  ):
@@ -40,7 +40,19 @@ class pole_c():
 
     def iteration(o):
         for object in o.objects:
-            object.next()
+            object.next(o)
+            o.chek_object_position(object)
+
+    def chek_object_position(o, object):
+        pass
+
+    def place_objects(o):
+        for k in o.pole:
+            o.pole[k] = '.'
+        for object in o.objects:
+
+
+
 
 
 class zaic():
@@ -49,12 +61,16 @@ class zaic():
         o.id = id
         o.x = x
         o.y = y
+        o.xy = [o.x, o.y]
 
-    def move_up(o):
-        o.x = o.x + 1
+
+    def move_down(o):
+        o.x = o.x - 1
         
-    def next(o):
+    def next(o, pole):
+        o.move_down()
         pass
+    
 
 
 def gen_unic_id():
